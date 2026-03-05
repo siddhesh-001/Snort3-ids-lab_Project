@@ -199,7 +199,6 @@ sudo ethtool -K eth0 gro off lro off
 
 This ensures Snort can inspect **raw network packets accurately**.
 
----
 ## Create systemd Service for NIC Configuration
 
 To ensure the network interface settings persist after reboot, create a systemd service.
@@ -243,6 +242,7 @@ systemctl status snort-nic.service
 ```
 
 This ensures the NIC configuration is **automatically applied when the system boots**.
+---
 
 # 🔧 Step 6 — Configure Snort
 
