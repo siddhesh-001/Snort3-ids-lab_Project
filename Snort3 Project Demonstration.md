@@ -420,7 +420,7 @@ alert tcp any any -> $HOME_NET any \
 detection_filter:track by_src, count 10, seconds 3; sid:1000010; rev:4;)
 ```
 
-Test using:
+Test using different VM:
 
 ```bash
 nmap -sS <snort_vm_ip>
