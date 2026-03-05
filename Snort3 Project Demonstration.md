@@ -302,6 +302,7 @@ sudo nano /usr/local/etc/snort/snort.lua
 ```
 
 then add...
+(inside the snort config file itself (snort.lua), find ‘configure detection’ section where ‘ips’ is mentioned and replace it with below line )
 
 ```
 ips =
