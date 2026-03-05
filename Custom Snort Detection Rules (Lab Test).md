@@ -132,28 +132,6 @@ alert udp any 53 -> $HOME_NET any \
 
 ---
 
-# 🎯 Purpose of These Rules
 
-These rules simulate detection scenarios commonly monitored by **Security Operations Centers (SOC)**:
-
-| Detection Type | Security Threat |
-|----------------|----------------|
-| ICMP Flood | Network flooding attack |
-| TCP SYN Scan | Reconnaissance / port scanning |
-| Malicious IP | Threat intelligence indicators |
-| Malicious DNS | Malware communication |
-
----
-
-# 📂 Rule File Structure
-
-Example rule file header:
-
-```snort
-# ==================================================
-# Local Snort Rules
-# Purpose: Custom IDS signatures (learning lab)
-# ==================================================
-```
 
 This rule set was created to demonstrate **custom IDS signature development and testing** in a controlled lab environment.
