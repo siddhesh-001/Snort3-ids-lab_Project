@@ -200,6 +200,49 @@ sudo ethtool -K eth0 gro off lro off
 This ensures Snort can inspect **raw network packets accurately**.
 
 ---
+## Create systemd Service for NIC Configuration
+
+To ensure the network interface settings persist after reboot, create a systemd service.
+
+Create the service file:
+
+```bash
+sudo nano /etc/systemd/system/snort-nic.service
+```
+
+Add the following configuration:
+
+```
+[Unit]
+Description=Set Snort NIC in promiscuous mode and disable GRO/LRO
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/ip link set eth0 promisc on
+ExecStart=/usr/sbin/ethtool -K eth0 gro off lro off
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
+```
+
+## Enable the NIC Service
+
+Reload systemd and enable the service:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable --now snort-nic.service
+```
+
+Verify the service:
+
+```bash
+systemctl status snort-nic.service
+```
+
+This ensures the NIC configuration is **automatically applied when the system boots**.
 
 # 🔧 Step 6 — Configure Snort
 
