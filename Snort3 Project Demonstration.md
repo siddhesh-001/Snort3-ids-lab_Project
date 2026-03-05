@@ -301,6 +301,8 @@ Open the Snort configuration file:
 sudo nano /usr/local/etc/snort/snort.lua
 ```
 
+then add...
+
 ```
 ips =
 {
